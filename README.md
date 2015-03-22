@@ -1,6 +1,6 @@
 # PPCC
 
-  PPCC is Prity Print C++ Compiler.
+  PPCC is Pretty Print C++ Compiler.
   
   It supports C++99.
   
