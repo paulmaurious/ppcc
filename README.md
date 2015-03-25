@@ -4,4 +4,4 @@
   
   It supports C++98.
   
-  For further information please read manual.
+  For further information please read documentation.
