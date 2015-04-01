@@ -211,5 +211,11 @@ bool Header::isValidHdFile(std::string hfile){
         else
             isValidHf = false;
     }
-    return isValidHf;
+    if (!isValidHf) {
+        
+        std::cerr << hfile << " : Unknown header file.\n";
+        exit(1);
+    }
+    else
+        return isValidHf;
 }

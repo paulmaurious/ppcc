@@ -56,7 +56,7 @@ bool Lex::lex(std::ifstream &src, std::ofstream &sym, std::ofstream &err){
     err.open("error.log", std::ios::out);
     while(!src.eof()){
         
-        src >> Token;
+        std::getline(src, Token, '\n');
         while(!Token.empty()){
             
             if(Header::isValidHeader(Token)){
@@ -125,6 +125,16 @@ bool Lex::lex(std::ifstream &src, std::ofstream &sym, std::ofstream &err){
                     sym << "SC " << SplChar::getChar() << " " << order << "\n";
                 }
             }
+            else if (Token.at(0) == '\t'){
+                
+                int i = 0;
+                while (Token.at(i) == '\t') {
+                    
+                    Token.erase(Token.at(i));
+                    i++;
+                }
+                
+            }
             else{
                 
                 lexPass = false;
@@ -133,6 +143,7 @@ bool Lex::lex(std::ifstream &src, std::ofstream &sym, std::ofstream &err){
             }
         }
         order++;
+        sym << "-- eol -- " << order << "\n";
     }
     sym.close();
     src.close();
