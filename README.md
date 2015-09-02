@@ -1,1 +1,1 @@
-[Read more words!](docs/readme.pdf)
+(docs/readme.pdf)
